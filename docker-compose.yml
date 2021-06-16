@@ -1,0 +1,34 @@
+version: "3"
+services: 
+    web:
+        stdin_open: true
+    #if we use build ., it assumes we have a dockerfile
+    #in our working directory. We don't in this
+    #case so we shouldn't use build .
+        build: 
+            #where we want files and folders
+            #for this image to come from
+            #if that was inside another dir, we
+            #would have indicated that
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        volumes:
+            #don't create any mapping. Just
+            #put node_modules inside /app
+            - /app/node_modules
+            #map the current folder outside 
+            #container to app folder inside
+            - .:/app 
+    #the sole purpose of this svc is to run test
+    tests:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - /app/node_modules
+            - .:/app
+#override starting command used when test container is created
+#the default cmd is npm run start
+        command: ["npm", "run", "test"]
