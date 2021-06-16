@@ -14,6 +14,8 @@ RUN npm run build
 FROM nginx
 #copy from the previous phase's /app/build dir
 #into /usr/share/nginx/html
+# we only copy this part over from the previous 
+#stage and dump everything else.
 COPY --from=0 /app/build /usr/share/nginx/html
 
 

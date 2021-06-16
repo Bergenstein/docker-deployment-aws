@@ -1,0 +1,9 @@
+language: generic
+sudo: required 
+services:
+- docker 
+
+before_install:
+- docker build -t israelbergenstein/docker-deployment-aws -f Dockerfile.dev .
+script: #-- --coverage makes sure that npm run test exists automatically when test is done
+- docker run -e CI=true israelbergenstein/docker-deployment-aws npm run test -- --coverage

@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Mamosta <code>Boukani</code> Mohammad Hazhir Khoramnia
+          It is <code>Sunny Today</code> Don't gaze at your screen
         </p>
         <a
           className="App-link"
@@ -15,10 +15,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Kori Kobra va Rahim
+          Head out for a walk!
         </a>
         <p>
-          Navai Mamosta Mala Abla, Iman Jomai Saqqez
+          Life is too short to code! 
         </p>
       </header>
     </div>
