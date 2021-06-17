@@ -2,7 +2,7 @@
 
 FROM node:alpine
 WORKDIR '/app'
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
 #we don't use volmues anymore because we don't
 #make change to the source-code. We don't change 
