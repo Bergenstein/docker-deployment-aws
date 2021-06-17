@@ -12,6 +12,7 @@ RUN npm run build
 
 #install nginx and copy over files from node 
 FROM nginx
+EXPOSE 80
 #copy from the previous phase's /app/build dir
 #into /usr/share/nginx/html
 # we only copy this part over from the previous 
