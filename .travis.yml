@@ -7,3 +7,17 @@ before_install:
 - docker build -t israelbergenstein/docker-deployment-aws -f Dockerfile.dev .
 script: #-- --coverage makes sure that npm run test exists automatically when test is done
 - docker run -e CI=true israelbergenstein/docker-deployment-aws npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "my-docker"
+  env: "Mydocker-env-1"
+  bucket_name: "elasticbeanstalk-us-east-1-547536666599"
+  #by default the bucket path name is the same as the app name
+  bucket_path: "my-docker"
+  #only deploy the app when master branch issues a pull requests and gets new code
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
