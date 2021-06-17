@@ -19,6 +19,7 @@ function App() {
         </a>
         <p>
           Life is too short to code! 
+          That being said, you are deployed on dev branch
         </p>
       </header>
     </div>
